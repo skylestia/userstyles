@@ -1,0 +1,23 @@
+/* ==UserStyle==
+@name         pretty simple scroll dark
+@version      20230306.02.07
+@namespace    userstyles.world/user/skylestia
+@description  very simple tweaks to the scrollbar that makes it prettier
+@author       skylestia
+@license      No License
+==/UserStyle== */
+
+@-moz-document url-prefix("https://"), url-prefix("http://") {
+    @media (prefers-color-scheme: dark) {
+        :root {scrollbar-width: thin;scrollbar-color: #f49bac #333335;}
+        ::-webkit-scrollbar {width: 5px;height: 5px;}::-webkit-scrollbar-track {background: #333335;}
+        ::-webkit-scrollbar-thumb {background: #f49bac;-webkit-border-radius: 1em;}
+        ::-webkit-scrollbar-thumb:hover {background: #f1bec7;}::-webkit-scrollbar-thumb:active {background: #f1bec7;}
+    }
+    @media (prefers-color-scheme: light) {
+        :root {scrollbar-width: thin;scrollbar-color: #f49bac #efefef;}
+        ::-webkit-scrollbar {width: 5px;height: 5px;}::-webkit-scrollbar-track {background: #efefef;}
+        ::-webkit-scrollbar-thumb {background: #f49bac;-webkit-border-radius: 1em;}
+        ::-webkit-scrollbar-thumb:hover {background: #f1bec7;}::-webkit-scrollbar-thumb:active {background: #f1bec7;}
+    }
+}

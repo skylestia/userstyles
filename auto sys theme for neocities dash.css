@@ -1,0 +1,65 @@
+/* ==UserStyle==
+@name         dark mode for neocities dashboard
+@version      20230218.04.49
+@namespace    userstyles.world/user/skylestia
+@author       skylestia
+@license      No License
+==/UserStyle== */
+
+@-moz-document url-prefix("https://neocities.org") {
+    @media (prefers-color-scheme: dark) {
+    :root {
+        --bg: black;
+        --text: #d6d9db;
+        --page: #19191a;
+        --panel: #282828;
+    }
+    body,.page,.col-left {
+        color: var(--text);
+        background-color: var(--bg);
+    }
+    .welcome {display: none;}
+    .col-left {border-right: 1px solid var(--bg);}
+    .content.misc-page,.misc-page.footer-Content {
+        color: var(--text);
+        background-color: var(--panel);
+    }
+    .content.misc-page.columns .col-66,
+    .misc-page.columns.footer-Content .col-66 {
+        color: var(--text);
+        background-color: var(--page);
+    }
+    .news-item {border-top: 1px solid var(--bg);}
+    .news-item .files,.file .title {
+        color: var(--text);
+        background-color: transparent;
+    }
+    .website-Gallery.int-Gall.suggestions li,
+    .website-Gallery.int-Gall li {
+        color: var(--text);
+        background-color: var(--panel);
+        border: 9px solid var(--panel);
+    }
+    .content.single-Col.misc-page,
+    .single-Col.misc-page.footer-Content {background-color: var(--page);}
+    .news-item .user {color: var(--text) !important;}
+    .section {
+        color: var(--text);
+        background-color: var(--bg);
+    }
+    .plan-chart td {
+        background-color: var(--panel);
+        border: 1px solid var(--bg);
+    }
+    .plan-chart td:nth-child(even) {background-color: var(--page);}
+    .post-comment {background-color: transparent;}
+    .news-item .comment {color: var(--text);}
+    input[disabled] {background-color: var(--bg);}
+    .content-Base {background-color: var(--bg);}
+    .files {background-color: var(--page);}
+    .files.list-view .list .file {background-color: var(--panel)}
+    .files.list-view .list .file:nth-child(even) {background-color: var(--page);}
+    .files .list .upload-Boundary.with-instruction {background-color: var(--page);}
+    }
+    }
+    

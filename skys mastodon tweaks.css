@@ -1,0 +1,420 @@
+/* ==UserStyle==
+@name         sky's mastodon tweaks
+@version      20230227.21.56
+@namespace    userstyles.world/user/skylestia
+@description  css to make mastodon look neater (in my opinion)
+
+i tried to leave a whole bunch of comments to make the code pretty customizable but i got tired of doing that, but a lot of stuff is still commented
+@author       skylestia
+@license      No License
+==/UserStyle== */
+
+@-moz-document domain("mindly.social"), domain("mastodon.social"), domain("mstdn.social"), domain("mastodon.world"), domain("mas.to"), domain("mastodon.online"), domain("universeodon.com"), domain("mastodon.sdf.org"), domain("masto.ai"), domain("mstdn.party"), domain("ohai.social"), domain("social.vivaldi.net"), domain("toot.community"), domain("det.social"), domain("masto.nu"), domain("toot.io"), domain("ieji.de"), domain("stranger.social"), domain("sself.co"), domain("theblower.au"), domain("mastodon.xyz"), domain("geekdom.social"), domain("cupoftea.social"), domain("convo.casa"), domain("opalstack.social"), domain("stoners.social"), domain("expressional.social"), domain("cr8r.gg"), domain("mstdn.dk"), domain("toot.funami.tech"), domain("swisstoots.ch"), domain("norcal.social"), domain("masr.social"), domain("mastodon.ar.al"), domain("social.treehouse.systems"), domain("ml45.net"), domain("vt.social"), domain("ruby.social"), domain("mastodon.art"), domain("mastodonapp.uk") {
+    /* i don't consider this theme "finished"
+     * and i do plan to continue working on it
+     * but it is functional and good enough
+     * to post!
+     */
+    /* color palette */
+    :root {
+        /* base colors dark */
+        --green-dark: #307742;
+        /* base colors light */
+        --green-light: #cfe;
+        /* dark theme backgrounds */
+        --bg-dark: #171717;
+        --bgPost-dark: #2d2d2e;
+        --bgInput-dark: #121215;
+        --bgMenu-dark: #1c1c1d;
+        --bgVerified-dark: #3077421a;
+        --active-toot-dark: #262626;
+        /* dark theme text */
+        --fgMenu-dark: #fff;
+        /* light theme backgrounds */
+        --bg-light: #eef0f2;
+        --bgPost-light: #fff;
+        --bgInput-light: #fff;
+        --bgMenu-light: #dcdedf;
+        --bgVerified-light: #3077421a;
+        --active-toot-light: #e6e7ea;
+        /* light theme text */
+        --fgMenu-light: #000;
+        /* other stuff */
+        --border: 1px solid #444446a3;
+        --border-subtle: 1px solid #44444614;
+        --border-subtle-light: 1px solid #acacae30;
+        --shadow-light: #b7bfc7;
+        --no-border: none;
+        --transitionTime: 0.5s;
+    }
+    
+    html,body {transition: 0.2s;}
+        
+    /* dark mode */
+    
+    
+    .theme-default {background: var(--bg-dark);}
+    /* setings page */
+    body.admin.theme-default {background-color: var(--bg-dark);}
+    .theme-default .admin-wrapper .sidebar ul ul {background-color: var(--bg-dark);}
+    .theme-default .admin-wrapper .sidebar ul a.selected {background: var(--bg-dark);}
+    .theme-default .admin-wrapper .sidebar ul .simple-navigation-active-leaf a {background-color: #595aff;}
+    .theme-default .admin-wrapper .sidebar-wrapper__inner {
+        background-color: var(--bgMenu-dark);
+    }
+    /* user profiles */
+    .theme-default .column-back-button {background-color: var(--bgMenu-dark);}
+    .theme-default .account__header {
+        background-color: var(--bgMenu-dark);
+    }
+    .theme-default .account__section-headline,
+    .theme-default .notification__filter-bar {
+        background-color: var(--bgMenu-dark);
+    }
+    .theme-default .account__section-headline a.active,
+    .theme-default .account__section-headline button.active,
+    .theme-default .notification__filter-bar a.active,
+    .theme-default .notification__filter-bar button.active {
+        background-color: var(--bgPost-dark);
+    }
+    .account__header__bio .account__header__fields {
+        background-color: transparent;
+    }
+    .theme-default .account__header__bio .account__header__fields dt {
+        color: var(--fg-dark);
+    }
+    .theme-default .account__header__bio .account__header__fields dl {
+        background-color: var(--bgMenu-dark);
+        border-bottom: var(--border-subtle);
+    }
+    .theme-default .account__header__bio .account__header__fields .verified {
+        background-color: var(--bgVerified-dark);
+        border: 1px solid var(--green-dark);
+    }
+    /* toots */
+    .theme-default .tabs-bar__wrapper {background-color: var(--bg-dark);}
+    .theme-default .column-header {background-color: var(--bgMenu-dark);}
+    .theme-default .column-header__button {background-color: var(--bgMenu-dark);}
+    .theme-default .load-gap {
+        color: white;
+        background-color: var(--green-dark);
+        transition: var(--transitionTime);
+    }
+    .theme-default .column>.scrollable {background-color: var(--bgPost-dark);}
+        .theme-mastodon-light .columns-area {background-color: var(--bgPost-dark);}
+    .theme-default .focusable {transition: var(--transitionTime);}
+    .theme-default .focusable:focus,.theme-default .focusable:hover {
+        background-color: var(--active-toot-dark);
+        transition: var(--transitionTime);
+    }
+    .theme-mastodon-dark .focusable:focus,
+    .theme-mastodon-dark .focusable:focus .detailed-status,
+    .theme-mastodon-dark .focusable:focus .detailed-status__action-bar {
+        background-color: var(--active-toot-dark);
+    }
+    .theme-default .detailed-status,
+    .theme-default .detailed-status__action-bar {
+        background-color: var(--active-toot-dark);
+    }
+    /* notifications, search results, etc */
+    .theme-default .account__section-headline button,
+    .theme-default .notification__filter-bar button {
+        background-color: var(--bgMenu-dark);
+    }
+    /* search box */
+    .theme-default .search__input,.theme-default .search__input:focus {
+        background-color: var(--bgInput-dark);
+    }
+    /* toot box */
+    .theme-default .compose-panel .compose-form__autosuggest-wrapper,
+    .theme-default .autosuggest-textarea .autosuggest-textarea__textarea,
+    .theme-default .compose-form .compose-form__modifiers {
+        background-color: var(--bgInput-dark);
+        color: var(--fgMenu-dark);
+        border-radius: 1em 1em 0 0;
+    }
+    .theme-default .compose-form .compose-form__buttons-wrapper {
+        background: var(--bgMenu-dark);
+    }
+    
+    
+    /* light mode */
+    
+    
+    .theme-mastodon-light {
+        color: var(--fg-light);
+        background: var(--bg-light);
+    }
+    /* setings page */
+    .theme-mastodon-light .admin-wrapper .sidebar-wrapper__inner {
+        background-color: var(--bgMenu-light);
+    }
+    body.admin.theme-mastodon-light {background-color: var(--bg-light);}
+    .theme-mastodon-light .admin-wrapper .sidebar ul ul {background-color: var(--bg-light);}
+    .theme-mastodon-light .admin-wrapper .sidebar ul a.selected {background: var(--bg-light);}
+    .theme-mastodon-light .admin-wrapper .sidebar ul .simple-navigation-active-leaf a {background-color: #595aff;}
+    /* user profiles */
+    .theme-mastodon-light .column-back-button {background-color: var(--bgMenu-light);}
+    .theme-mastodon-light .account__header {
+        background-color: var(--bgMenu-light);
+    }
+    .theme-mastodon-light .account__section-headline,
+    .theme-mastodon-light .notification__filter-bar {
+        background-color: var(--bgMenu-light);
+    }
+    .theme-mastodon-light .account__section-headline a.active,
+    .theme-mastodon-light .account__section-headline button.active,
+    .theme-mastodon-light .notification__filter-bar a.active,
+    .theme-mastodon-light .notification__filter-bar button.active {
+        background-color: var(--bgPost-light);
+    }
+    .theme-mastodon-light .account__header__bio .account__header__fields dl {
+        background-color: var(--bgMenu-light);
+        border-bottom: var(--border-subtle);
+    }
+    .theme-mastodon-light .account__header__bio .account__header__fields .verified {
+        background-color: var(--bgVerified-light);
+        border: 1px solid var(--green-light);
+    }
+    /* toots */
+    .theme-mastodon-light .tabs-bar__wrapper {background-color: var(--bg-light);}
+    .theme-mastodon-light .column-header {
+        background-color: var(--bgMenu-light);
+        box-shadow: 0 0 2px var(--shadow-light);
+    }
+    .theme-mastodon-light .column-header__button {background-color: var(--bgMenu-light);}
+    .theme-mastodon-light .load-gap {background-color: var(--green-light);}
+    .theme-mastodon-light .columns-area {
+        background-color: var(--bgPost-light);
+        box-shadow: 0 0 5px var(--shadow-light);
+    }
+    .theme-mastodon-light .column>.scrollable {background-color: var(--bgPost-light);}
+    .theme-mastodon-light .focusable {transition: var(--transitionTime);}
+    .theme-mastodon-light .focusable:focus,.theme-mastodon-light .focusable:hover {
+        background-color: var(--active-toot-light);
+        transition: var(--transitionTime);
+    }
+    .theme-mastodon-light .focusable:focus,
+    .theme-mastodon-light .focusable:focus .detailed-status,
+    .theme-mastodon-light .focusable:focus .detailed-status__action-bar {
+        background-color: var(--active-toot-light);
+    }
+    .theme-mastodon-light .detailed-status,
+    .theme-mastodon-light .detailed-status__action-bar {
+        background-color: var(--active-toot-light);
+    }
+    /* search box */
+    .theme-mastodon-light .search__input,.theme-mastodon-light .search__input:focus {
+        background-color: var(--bgInput-light);
+    }
+    /* toot box */
+    .theme-mastodon-light .compose-panel .compose-form__autosuggest-wrapper,
+    .theme-mastodon-light .autosuggest-textarea .autosuggest-textarea__textarea,
+    .theme-mastodon-light .compose-form .compose-form__modifiers {
+        background-color: var(--bgInput-light);
+        border-radius: 1em 1em 0 0;
+    }
+    .theme-mastodon-light .compose-form .compose-form__buttons-wrapper {
+        background: var(--bgMenu-light);
+    }
+    .theme-mastodon-light .audio-player,
+    .theme-mastodon-light .compose-form .spoiler-input__input,
+    .theme-mastodon-light .compose-form__autosuggest-wrapper,
+    .theme-mastodon-light .compose-form__poll-wrapper select,
+    .theme-mastodon-light .poll__option input[type=text],
+    .theme-mastodon-light .report-dialog-modal__textarea,
+    .theme-mastodon-light .search__input,
+    .theme-mastodon-light .setting-text {
+        border: var(--border-none);
+        box-shadow: 0 0 2px var(--shadow-light);
+    }
+    
+    
+    /* LAYOUT TWEAKS */
+    
+    
+    /* taller toot box */
+    .compose-form .autosuggest-textarea__textarea {min-height: 15em;}
+    .audio-player, .compose-form .spoiler-input__input,
+    .compose-form__autosuggest-wrapper,.compose-form__poll-wrapper select,
+    .poll__option input[type=text],.report-dialog-modal__textarea,
+    .search__input,.setting-text {
+        border-radius: 3em;
+    }
+    /* compact & uncluttered right sidebar */
+    /* remove borders */
+    .navigation-panel hr {display: none;}
+    /* remove button labels */
+    .navigation-panel a i + span {display: none;}
+    /* collapse buttons */
+    .navigation-panel {
+        display: block;
+        text-align: center;
+    }
+    .navigation-panel a {
+        display: inline-block;
+        padding: 1em 0 0;
+    }
+    .column-link {font-size: 30px;}
+    .getting-started__trends {text-align: left;}
+    .getting-started__trends a {display: block;}
+    /* center logo */
+    .navigation-panel .logo {height: auto;}
+    .column-link.column-link--logo {
+        display: block;
+        width: 270px;
+        margin: auto;
+        padding: initial;
+        white-space: initial;
+    }
+    .getting-started__trends h4 {text-transform: capitalize;}
+    /* toots */
+    /* move page header to the sidebar */
+    .navigation-panel {margin-top: 6em;}
+    .layout-single-column .tabs-bar__wrapper {
+        position: relative;
+        left: 57em;
+        width: 238px;
+        background-color: transparent;
+    }
+    .column-back-button,
+    .layout-single-column .column-header,
+    .layout-single-column .column-header__wrapper {
+        position: fixed;
+        width: 280px;
+        border-radius: 2em;
+    }
+    @media only screen and  (max-width: 1305px) {
+        .layout-single-column .tabs-bar__wrapper {left: 53em;}
+    }
+    @media only screen and  (max-width: 1256px) {
+        .layout-single-column .tabs-bar__wrapper {left: 46em;}
+    }
+    @media only screen and  (max-width: 1173px) {
+        .layout-single-column .tabs-bar__wrapper {
+            position: initial;
+            left: 46em;
+            width: initial;
+        }
+        .column-back-button,
+        .layout-single-column .column-header,
+        .layout-single-column .column-header__wrapper {
+            position: initial;
+            width: initial;
+        }
+    }
+    .layout-single-column .column-header__collapsible {margin-top: 2em;}
+    .column-header__collapsible-inner {padding-top: 3em;}
+    .announcements__container {
+        min-width: 280px;
+        top: 15px;
+        left: -120px;
+        margin-bottom: 105px;
+    }
+    /* remove border on header */
+    .column-back-button,.column-header {border: var(--border-none);}
+    .column-header__wrapper.active {box-shadow: none;}
+    /* no top gradient on read more notification */
+    .column-header__wrapper.active:before {display: none;}
+    /* padding on toots */
+    .columns-area {
+        margin-top: 10px;
+        margin-bottom: 40%;
+        border-radius: 3em;
+        transition: 0.2s;
+    }
+    .column>.scrollable {padding: 0 3em;}
+    .focusable,.focusable.detailed-status__wrapper {
+        margin-top: 1em;
+        border-radius: 2em;
+    }
+    .detailed-status {border-radius: 2em 2em 0 0;}
+    .detailed-status__action-bar {border-radius: 0 0 2em 2em;}
+    .focusable:focus,.focusable:focus .detailed-status {border-radius: 2em;}
+    .focusable:focus .detailed-status__action-bar {border-radius: 10em;}
+    .detailed-status__action-bar {
+        border-top: var(--border-subtle);
+        border-bottom: var(--border-subtle);
+    }
+    /*  */
+    .load-gap {
+        width: 750px;
+        margin: 0 -3em;
+        border-bottom: var(--border-none);
+    }
+    /* remove toot borders */
+    .status {border-bottom: var(--border-subtle);}
+    .column-inline-form,.column>.scrollable,
+    .error-column,.getting-started,.regeneration-indicator {
+        border: var(--border-none);
+    }
+    /* increase width */
+    .columns-area__panels__main {max-width: 750px;transition: 0.2s;}
+    @media only screen and  (max-width: 1307px) {
+        .columns-area__panels__main {max-width: 700px;}
+        .tabs-bar__wrapper {width: 700px;}
+        .column-header__wrapper {width: 680px;}
+    }
+    @media only screen and  (max-width: 1256px) {
+        .columns-area__panels__main {max-width: 600px;}
+    }
+    /* notifications, search results, etc */
+    .account__section-headline,.notification__filter-bar {
+        margin: 0 -3em;
+    }
+    /* user profiles */
+    .account-timeline__header {width: 57em;margin-left: -3em;}
+    .account__header__image {height: 22em;}
+    .account__header__bar {border-bottom: var(--border-subtle);}
+    .account__header__tabs {
+        margin: -110px -9px 0 -20px;
+        padding: 0 2em;
+        background: linear-gradient(to top, #dcdedf 30%,#fff0 60%);
+    }
+    .account__header__bar .avatar .account__avatar {
+        width: 150% !important;
+        height: auto !important;
+        border-radius: 100%;
+    }
+    .account__header__tabs__name {margin: 5px 0 0}
+    .account__header__bio .account__header__content {padding: 0 1em;}
+    .account__header__content a.hashtag {
+        padding: 0 5px;
+        color: black;
+        text-decoration: none;
+        background-color: lightblue;
+    }
+    .account__header__content a.hashtag:hover {color: lightblue;background-color: initial;}
+    .theme-mastodon-light .account__header__content a.hashtag:hover {color: black;}
+    .account__header__content p {margin-bottom: 10px;}
+    .account__header__bio .account__header__fields {display: flex;flex-wrap: wrap;margin: 1em 0 0;}
+    .account__header__bio .account__header__fields dl {padding: 5px 10px;}
+    .theme-mastodon-dark .account__header__bio .account__header__fields dl,
+    .theme-mastodon-light .account__header__bio .account__header__fields dl {
+        border: var(--border-none);
+    }
+    .account__header__bio .account__header__fields dl:nth-child(1) {
+        flex-basis: 100%;
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+    .account__header__bio .account__header__fields dt {text-transform: capitalize;}
+    .account__header__bio .account__header__fields dt,
+    .account__header__bio .account__header__fields dd {
+        font-size: smaller;
+    }
+    .account__section-headline,.notification__filter-bar {
+        border-bottom: var(--no-border);
+    }
+    .account__section-headline a.active:after,
+    .account__section-headline a.active:before,
+    .account__section-headline button.active:after,
+    .account__section-headline button.active:before,
+    .notification__filter-bar a.active:after,
+    .notification__filter-bar a.active:before,
+    .notification__filter-bar button.active:after,
+    .notification__filter-bar button.active:before {
+        display: none;
+    }
+    }
+    
