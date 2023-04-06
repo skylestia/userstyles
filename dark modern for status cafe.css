@@ -1,0 +1,62 @@
+/* ==UserStyle==
+@name         modern dark for status cafe
+@version      20230406.02.25
+@namespace    userstyles.world/user/skylestia
+@description  a dark theme that looks a bit more modern for status cafe
+@author       skylestia
+@license      No License
+==/UserStyle== */
+
+@-moz-document url("https://status.cafe/"), url("https://status.cafe"), url("status.cafe"), domain("forum.status.cafe") {
+    :root {
+        --bg-base: #020f1c;
+        --bg: #212224;
+        --bg-alt: #212937;
+        --fg: #d8ebff;
+        --fg-link: #629bd7;
+        --fg-link-hover: #add5ff;
+        --animation-length: 0.5s;
+    }
+    @font-face {
+        font-family: 'comic';
+        src: url('https://sky-assets.pages.dev/font/ComicNeue.ttf') format('truetype');
+    }
+    body {
+        font-family: comic, sans-serif;
+        color: var(--fg);
+        background-color: var(--bg-base);
+    }
+    body > main > div > section:nth-child(2) {
+        margin: 3em auto;
+        padding: 0 5em;
+        background-color: var(--bg);
+        border-radius: 3em;
+    }
+    a {
+        color: var(--fg-link);
+        transition: var(--animation-length);
+    }
+    a:hover {
+        color: var(--fg-link-hover);
+        text-decoration: overline;
+        transition: var(--animation-length);
+    }
+    body > header > nav {
+        text-align: center;
+        font-size: 13pt;
+    }
+    body > main > div > section:nth-child(1) textarea {
+        color: var(--fg);
+        background-color: var(--bg);
+    }
+    body > main > div > section:nth-child(1) > p:nth-child(4) > textarea,
+    body > main > div > section:nth-child(1) > p:nth-child(5) > textarea {
+        min-height: 100px;
+    }
+    /* forum */
+    tbody {background-color: var(--bg);}
+    .forum {background-color: var(--bg-alt);}
+    .topic > tbody > tr:nth-child(2n) {
+        background-color: var(--bg-alt);
+    }
+    }
